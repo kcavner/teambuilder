@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    
+}
+.header{
+    background-color: rgba(19, 116, 234, 0.714);
+    text-align: center;
+    font-size:60px;
+}
+#card-container{
+    display: flex;
+    flex-direction: row;
+    
+}
+.new-card{
+    margin: 20px;
+    background-color: rgb(230, 230, 230);
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px;
+}
+.title{
+font-size:20px ;
+background-color: rgb(100, 33, 255);
+color: aliceblue;
+border-radius: 4px;
+}
+
+.name{
+    margin-block:2px;
+    background-color: rgb(255, 255, 255);
+    margin-inline: 15px;
+    border-radius: 4px;
+}
+.email{
+    margin-block:2px;
+    background-color: rgb(255, 255, 255);
+    margin-inline: 15px;
+    border-radius: 4px;
+}
+.office{
+    margin-block:2px;
+    background-color: rgb(255, 255, 255);
+    margin-inline: 15px;
+    border-radius: 4px;
+}
+.github{
+    margin-block:2px;
+    background-color: rgb(255, 255, 255);
+    margin-inline: 15px;
+    border-radius: 4px;
+}
+.school{
+    margin-block:2px;
+    background-color: rgb(255, 255, 255);
+    margin-inline: 15px;
+    border-radius: 4px;
+}
+.id{
+    margin-block:2px;
+    background-color: rgb(255, 255, 255);
+    margin-inline: 15px;
+    border-radius: 4px;
+
+}
