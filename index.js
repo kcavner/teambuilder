@@ -1,3 +1,4 @@
+// importing files and packages
 const Engineer = require('./lib/engineer')
 const Intern = require('./lib/intern')
 const Manager = require('./lib/manager')
@@ -6,7 +7,7 @@ const fs = require('fs')
 const html = './dist/index.html'
 
 
-
+// initial prompt gives value to manager
 inquirer.prompt([
 {
     type:'input',
@@ -33,18 +34,21 @@ inquirer.prompt([
     validate: validateInput
 }
 ]).then((answers)=>{
+    // destrucutured return object to grab variables
     const {managerName,employeeID,email,office} = answers
     const newManager = new Manager(managerName,employeeID,email,office)
+    // newcard function is ran with input values returned from prompt
     newCard(newManager)
     choicePrompt()
 })
 
+// function that creates elements on html using fs functionality
 function newCard(classObject){
 
     const classArray = Object.entries(classObject);
-  
     const htmlFile = fs.readFileSync(html, 'utf-8');
 
+//    div is replaced with further elements mapped from the class object to avoid hangups on unique values
     var updatedHtml = htmlFile.replace(
       '<div id="card-container">',
       `<div id="card-container">
@@ -53,11 +57,10 @@ function newCard(classObject){
         </div>
       `
     );
-   
-
     fs.writeFileSync(html, updatedHtml, 'utf-8');
   }
 
+//   prompt that asks for either engineer or intern 
 function choicePrompt(){
     inquirer.prompt([
         {
@@ -68,6 +71,7 @@ function choicePrompt(){
             validate: validateInput
         },
         ]).then((choiceAnswers)=>{
+            // changes to either engineer or intern prompt based on the choice
             if(choiceAnswers.employeeChoice === 'engineer'){
                 engineerPrompt()
                 }
@@ -79,7 +83,7 @@ function choicePrompt(){
                 }    
         })
 }
-
+// prompt for engineer card on the html
 function engineerPrompt(){
     inquirer.prompt([
         {
@@ -114,7 +118,7 @@ function engineerPrompt(){
         choicePrompt()
     })
 }
-
+// prompt for intern card on the html
 function internPrompt(){
     inquirer.prompt([
         {
@@ -150,7 +154,7 @@ function internPrompt(){
     })
 }
 
-// modular function to validate input as the value to the validate propterties in the inquirer prompt
+// modular function to validate input in inquirer
 function validateInput(input){
     if (input.trim() === '') {
         return 'You must enter something.';
